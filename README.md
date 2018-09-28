@@ -1,6 +1,6 @@
 ## Build
 - `#>` `git submodule update --init --recursive`
-- `#>` `mkdir build && cd build && cmake .. && make`
+- `#>` `mkdir build && cd build && cmake .. -DGIT_SUBMODULE=ON && make`
 - `#>` `./Template`
 
 ## Usage as template:
