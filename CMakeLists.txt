@@ -39,12 +39,6 @@ else ()
     set(DO_CLANG_TIDY "${CLANG_TIDY}" "-fix;-fix-errors")
 endif ()
 
-include(deps/eigen.cmake)
-
-if (UNIX)
-    # Silence warnings in Eigen
-    add_compile_options(-Wno-deprecated-register)
-endif()
 
 
 
