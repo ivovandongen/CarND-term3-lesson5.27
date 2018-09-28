@@ -29,6 +29,16 @@ else ()
     )
 endif ()
 
+# Clang tidy
+
+find_program(CLANG_TIDY NAMES "clang-tidy" DOC "Path to clang-tidy executable")
+if (NOT CLANG_TIDY)
+    message(STATUS "clang-tidy not found.")
+else ()
+    message(STATUS "clang-tidy found: ${CLANG_TIDY}")
+    set(DO_CLANG_TIDY "${CLANG_TIDY}" "-fix;-fix-errors")
+endif ()
+
 include(deps/eigen.cmake)
 
 if (UNIX)
