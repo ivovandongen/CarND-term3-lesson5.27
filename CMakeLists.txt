@@ -39,11 +39,14 @@ else ()
     set(DO_CLANG_TIDY "${CLANG_TIDY}" "-fix;-fix-errors")
 endif ()
 
+# Core sources
 
+add_subdirectory(src)
 
+# Main executable
 
 add_executable(Template
     ${CMAKE_SOURCE_DIR}/src/main.cpp
-)
+    )
 
-target_link_libraries(Template Eigen)
+target_link_libraries(Template core)
