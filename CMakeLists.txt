@@ -50,3 +50,8 @@ add_executable(Template
     )
 
 target_link_libraries(Template core)
+
+
+# Tests
+
+add_subdirectory(test)
