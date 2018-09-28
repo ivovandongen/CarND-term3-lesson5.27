@@ -9,6 +9,26 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 # Ensure git submodules are up to date
 include(${CMAKE_MODULE_PATH}/git.cmake)
 
+# Clang format
+
+file(GLOB_RECURSE SRC_FILES src/*.cpp src/*.hpp)
+file(GLOB_RECURSE TEST_FILES src/*.cpp src/*.hpp)
+set(ALL_SOURCES ${SRC_FILES} ${TEST_FILES})
+
+find_program(CLANG_FORMAT NAMES "clang-format" DOC "Path to clang-format executable")
+if (NOT CLANG_FORMAT)
+    message(STATUS "clang-format not found.")
+else ()
+    message(STATUS "clang-format found: ${CLANG_FORMAT}")
+    add_custom_target(
+            clang-format
+            COMMAND ${CLANG_FORMAT}
+            -style=file
+            -i
+            ${ALL_SOURCES}
+    )
+endif ()
+
 include(deps/eigen.cmake)
 
 if (UNIX)
