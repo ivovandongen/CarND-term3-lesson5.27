@@ -3,6 +3,9 @@ project(TEMPLATE)
 
 set(CMAKE_CXX_STANDARD 14)
 
+# Update submodules as needed
+option(GIT_SUBMODULE "Check submodules during build" OFF)
+
 # CMake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 

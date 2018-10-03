@@ -1,4 +1,4 @@
-include(${CMAKE_SOURCE_DIR}/deps/googletest.cmake)
+git_include(googletest)
 
 set(TEST_DIR ${CMAKE_SOURCE_DIR}/test)
 

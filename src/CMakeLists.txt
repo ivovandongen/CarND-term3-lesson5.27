@@ -1,5 +1,5 @@
 # Submodules
-include(${CMAKE_SOURCE_DIR}/deps/eigen.cmake)
+git_include(Eigen)
 
 add_library(core STATIC
     ${CMAKE_SOURCE_DIR}/src/core.hpp
