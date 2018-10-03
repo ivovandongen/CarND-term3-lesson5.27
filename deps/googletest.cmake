@@ -1,3 +1,5 @@
+include_guard_x(__GOOGLETEST__)
+
 set(GTEST_DIR ${CMAKE_SOURCE_DIR}/deps/googletest/googletest)
 
 add_library(gtest STATIC

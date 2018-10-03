@@ -1,3 +1,5 @@
+include_guard_x(__UWEBSOCKETS__)
+
 # OpenSSL
 find_package(OpenSSL 1.0.2 REQUIRED)
 

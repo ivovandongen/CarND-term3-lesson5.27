@@ -6,8 +6,9 @@ set(CMAKE_CXX_STANDARD 14)
 # CMake modules
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
-# Ensure git submodules are up to date
+# Load modules
 include(${CMAKE_MODULE_PATH}/git.cmake)
+include(${CMAKE_MODULE_PATH}/include_guard.cmake)
 
 # Clang format
 
