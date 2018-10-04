@@ -13,3 +13,6 @@
 [submodule "deps/CSVWriter"]
 	path = deps/CSVWriter
 	url = git@github.com:al-eax/CSVWriter.git
+[submodule "deps/matplotlibcpp"]
+	path = deps/matplotlibcpp
+	url = git@github.com:lava/matplotlib-cpp.git
