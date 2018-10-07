@@ -1,7 +1,7 @@
 include_guard_x(__MATPLOTLIBCPP__)
 
 # We need the python header
-find_package(PythonLibs REQUIRED)
+find_package(PythonLibs 2.7 REQUIRED)
 
 add_library(matplotlibcpp INTERFACE)
 
