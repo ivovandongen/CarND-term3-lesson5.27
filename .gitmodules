@@ -16,3 +16,6 @@
 [submodule "deps/matplotlibcpp"]
 	path = deps/matplotlibcpp
 	url = git@github.com:lava/matplotlib-cpp.git
+[submodule "deps/cppcodec"]
+	path = deps/cppcodec
+	url = git@github.com:tplgy/cppcodec.git
