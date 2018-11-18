@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(TEMPLATE)
+project(JMT)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -43,19 +43,12 @@ else ()
     set(DO_CLANG_TIDY "${CLANG_TIDY}" "-fix;-fix-errors")
 endif ()
 
-# Core sources
-
-add_subdirectory(src)
-
 # Main executable
 
-add_executable(Template
+git_include(Eigen)
+
+add_executable(JMT
     ${CMAKE_SOURCE_DIR}/src/main.cpp
     )
 
-target_link_libraries(Template core)
-
-
-# Tests
-
-add_subdirectory(test)
+target_link_libraries(JMT Eigen)
