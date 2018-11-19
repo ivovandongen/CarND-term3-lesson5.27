@@ -9,7 +9,6 @@ using namespace std;
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
 
-// TODO - complete this function
 vector<double> JMT(vector<double> start, vector<double> end, double T) {
     /*
     Calculate the Jerk Minimizing Trajectory that connects the initial state
@@ -34,7 +33,29 @@ vector<double> JMT(vector<double> start, vector<double> end, double T) {
     > JMT( [0, 10, 0], [10, 10, 0], 1)
     [0.0, 10.0, 0.0, 0.0, 0.0, 0.0]
     */
-    return {1, 2, 3, 4, 5, 6};
+
+
+    Eigen::MatrixXd A(3, 3);
+    A << std::pow(T, 3), std::pow(T, 4), std::pow(T, 5),
+            3 * std::pow(T, 2), 4 * std::pow(T, 3), 5 * std::pow(T, 4),
+            6 * T, 12 * std::pow(T, 2), 20 * std::pow(T, 3);
+
+    auto &si = start[0];
+    auto &si_dot = start[1];
+    auto &si_double_dot = start[2];
+
+    auto &sf = end[0];
+    auto &sf_dot = end[1];
+    auto &sf_double_dot = end[2];
+
+    Eigen::VectorXd B(3);
+    B << sf - (si + si_dot * T + .5 * si_double_dot * std::pow(T, 2)),
+            sf_dot - (si_dot + si_double_dot * T),
+            sf_double_dot - si_double_dot;
+
+    Eigen::VectorXd C = A.inverse() * B;
+
+    return {si, si_dot, .5 * si_double_dot, C[0], C[1], C[2]};
 
 }
 
